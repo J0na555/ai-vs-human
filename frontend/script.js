@@ -23,7 +23,7 @@ function checkGuess(guess) {
         document.body.classList.add("correct-guess")
         document.body.classList.remove("wrong-guess")
     } else {
-        score = Math.max(0, score - 1);
+        score = Math.max(0, score );
         document.body.classList.add("wrong-guess")
         document.body.classList.remove("correct-guess")
     }
