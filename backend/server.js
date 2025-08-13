@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 
 // Handle favicon.ico requests
 app.get("/favicon.ico", (req, res) => {
-    res.status(204).end(); // Return 204 No Content to indicate no favicon
+    res.status(204).end(); 
 });
 
 // Random image endpoint

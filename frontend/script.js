@@ -5,7 +5,7 @@ async function loadImage() {
     try {
         const res = await fetch("/random-images");
         const data = await res.json();
-        console.log("Image URL:", data.url); // Debug log
+        console.log("Image URL:", data.url); 
         if (data.error) {
             console.error(data.error);
             return;
@@ -19,9 +19,13 @@ async function loadImage() {
 
 function checkGuess(guess) {
     if (guess === correctCategory) {
-        score++;
+        score++
+        document.body.classList.add("correct-guess")
+        document.body.classList.remove("wrong-guess")
     } else {
-        score = Math.max(0, score - 1); // Fixed typo
+        score = Math.max(0, score - 1);
+        document.body.classList.add("wrong-guess")
+        document.body.classList.remove("correct-guess")
     }
     document.getElementById("score").textContent = `Score: ${score}`;
     loadImage();
