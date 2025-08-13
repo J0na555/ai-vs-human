@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' http://localhost:3000; script-src 'self'; style-src 'self'; connect-src 'self' http://localhost:3000">
+    <title>AI vs Human</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>Ai vs Human</h1>
+    <h1>AI vs Human</h1>
     <p id="score">Score: 0</p>
-
-      <img id="game-image" src="" alt="Guess the image" width="400" height="400" />
-
-      <div>
+    <img id="game-image" src="" alt="Game Image">
+    <div>
         <button id="guess-ai">AI</button>
         <button id="guess-human">Human</button>
-      </div>
-      <script src="script"></script>
+    </div>
+    <script type="module" src="/script.js"></script>
 </body>
 </html>
