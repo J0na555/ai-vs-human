@@ -6,10 +6,10 @@ const app = express();
 const PORT = 3000;
 
 // Serve images from /images
-app.use("/images", express.static(path.join(__dirname, "../images")));
+app.use("/images", express.static(path.join(__dirname, "frontend/images")));
 
 // Serve frontend files (html, css, js)
-app.use(express.static(path.join(__dirname, "../frontend"), {
+app.use(express.static(path.join(__dirname, "frontend"), {
     setHeaders: (res, path) => {
         if (path.endsWith(".js")) {
             res.setHeader("Content-Type", "application/javascript");
@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, "../frontend"), {
 
 // Serve index.html for the root route
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "index.html"));
+    res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
 // Handle favicon.ico requests
@@ -30,8 +30,8 @@ app.get("/favicon.ico", (req, res) => {
 // Random image endpoint
 app.get("/random-images", (req, res) => {
     try {
-        const aiImages = fs.readdirSync(path.join(__dirname, "../images/ai"));
-        const humanImages = fs.readdirSync(path.join(__dirname, "../images/human"));
+        const aiImages = fs.readdirSync(path.join(__dirname, "frontend/images/ai"));
+        const humanImages = fs.readdirSync(path.join(__dirname, "frontend/images/human"));
 
         if (aiImages.length === 0 && humanImages.length === 0) {
             return res.status(500).json({ error: "No image found in either folder" });
